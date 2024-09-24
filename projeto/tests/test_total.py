@@ -15,8 +15,9 @@ def criar_medico():
     Setor.SAUDE,10005.3,"crm")
     return medico
 
+
 def test_nome_invalido_retorna_mensagem_excessao():
-    with pytest.raises(ValueError, match= "O nome não pode ser vazio"):
+    with pytest.raises(ValueError, match = "O nome não pode ser vazio"):
        Medico(12,"","telefone","@gmail.com",
                 Endereco("Rua maluca","18","1 andar","4040","Salvador",UnidadeFederativa.BAHIA),
                  Sexo.MASCULINO,EstadoCivil.VIUVO,"04/11/2005","cpf","rg","matricula",
@@ -24,16 +25,9 @@ def test_nome_invalido_retorna_mensagem_excessao():
 
 
 def test_telefone_invalido():
-   with pytest.raises(TypeError,match = "Digite apenas números"):
+   with pytest.raises(TypeError,match = "Coloque um telefone valido"):
     Medico(12,"Luis","telefone","@gmail.com",
                 Endereco("Rua maluca","18","1 andar","4040","Salvador",UnidadeFederativa.BAHIA),
                  Sexo.MASCULINO,EstadoCivil.VIUVO,"04/11/2005","cpf","rg","matricula",
                  Setor.SAUDE,10005.3,"crm")
 
-def test_id_invalido():
-   with pytest.raises(TypeError,match = "Digite apenas números"):
-    Medico("adnokjn","Luis","telefone","@gmail.com",
-                Endereco("Rua maluca","18","1 andar","4040","Salvador",UnidadeFederativa.BAHIA),
-                 Sexo.MASCULINO,EstadoCivil.VIUVO,"04/11/2005","cpf","rg","matricula",
-                 Setor.SAUDE,10005.3,"crm")
-  

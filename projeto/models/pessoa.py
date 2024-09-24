@@ -3,16 +3,13 @@ from projeto.models.endereco import Endereco
 
 class Pessoa(ABC):
     def __init__(self,id: int,nome: str, telefone: int, email: str, endereco: Endereco) -> None:
-        self.id = self._verificarID(id)
+        self.id = id
         self.nome = self._verificarNome(nome)
         self.telefone = self._verificarTelefone(telefone)
         self.email = email
         self.endereco = endereco
     
-    def _verificarID(self,id):
-        if not isinstance (id,int):
-            raise TypeError("Digite apenas números")
-        return id
+    
     
     def _verificarNome(self,nome):
         if nome == "":
@@ -21,9 +18,7 @@ class Pessoa(ABC):
     
     def _verificarTelefone(self,telefone):
         if not isinstance (telefone,int):
-            raise TypeError("Digite apenas números")
-        if telefone < 0:
-            raise ValueError("Não pode ser negativo")
+            raise TypeError("Coloque um telefone valido")
         return telefone
 
     @abstractmethod
