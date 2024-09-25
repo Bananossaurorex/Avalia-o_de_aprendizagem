@@ -11,7 +11,12 @@ class Medico(Funcionario):
         
         super().__init__(id, nome, telefone, email, endereco, sexo, estadoCivil, dataNascimento, cpf,
                           rg, matricula, setor, salario)
-        self.crm = crm
+        self.crm = self._verificarCRM(crm)
+
+    def _verificarCRM(self,crm):
+        if crm == "":
+            raise ValueError("O nome não pode ser vazio")
+        return crm
 
     def __str__(self) -> str:
         return f"{super().__str__()}\nCrm: {self.crm}"

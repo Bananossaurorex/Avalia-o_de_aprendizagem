@@ -20,3 +20,6 @@ def test_crea_invalido():
     Endereco("Rua maluca","18","1 andar","4040","Salvador",UnidadeFederativa.BAHIA),
     Sexo.MASCULINO,EstadoCivil.VIUVO,"04/11/2005","cpf","rg","matricula",
     Setor.SAUDE,10005.3,"djbfijs")
+
+def test_confirmacao_id(criar_engenheiro):
+    assert criar_engenheiro.id == 12

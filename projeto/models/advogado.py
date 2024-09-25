@@ -10,7 +10,7 @@ class Advogado(Funcionario):
         self.oab = self._verificarOab(oab)
 
     def _verificarOab(self,oab):
-        if not isinstance (oab,int):
+        if not isinstance (oab,str):
             raise TypeError("OAB")
         return oab
 
