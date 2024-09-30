@@ -12,6 +12,8 @@ class Advogado(Funcionario):
     def _verificarOab(self,oab):
         if not isinstance (oab,str):
             raise TypeError("OAB")
+        if oab == "":
+            raise ValueError("A OAB não pode ser vazio")
         return oab
 
     def __str__(self) -> str:

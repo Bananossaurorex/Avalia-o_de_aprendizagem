@@ -20,6 +20,13 @@ def test_oab_invalido():
     Endereco("Rua maluca","18","1 andar","4040","Salvador",UnidadeFederativa.BAHIA),
     Sexo.MASCULINO,EstadoCivil.VIUVO,"04/11/2005","cpf","rg","matricula",
     Setor.SAUDE,10005.3,3123234)
-
+        
+def test_oab_invalido():
+    with pytest.raises (ValueError,match = "A OAB não pode ser vazio"):
+        Advogado(12,"Luis",40028922,"@gmail.com",
+    Endereco("Rua maluca","18","1 andar","4040","Salvador",UnidadeFederativa.BAHIA),
+    Sexo.MASCULINO,EstadoCivil.VIUVO,"04/11/2005","cpf","rg","matricula",
+    Setor.SAUDE,10005.3,"")
+ 
 def test_confirmacao_id(criar_advogado):
     assert criar_advogado.id == 11
